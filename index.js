@@ -31,11 +31,13 @@ program.version(package.version)
 program
     .command('generate [fileName]')
     .description('Generate meetup poster')
-    .option('-p, --presenter [presenter]', 'Change presenter name')
-    .option('-d, --date [date]', 'Change poster date')
-    .option('-h, --hour [hour]', 'Change poster hour')
-    .option('-r, --role [role]', 'Change presenter role')
-    .option('-l, --link [link]', 'Change meetup link')
+    .option('-p, --presenter [presenter]', 'Set presenter name')
+    .option('-t, --title [title]', 'Set meetup title')
+    .option('-d, --date [date]', 'Set meetup date')
+    .option('-h, --hour [hour]', 'Set meetup hour')
+    .option('-r, --role [role]', 'Set presenter role')
+    .option('-l, --link [link]', 'Set meetup link')
+    .option('-i, --image [image]', 'Set presenter image')
     .action((fileName, options) => {
         createPoster(options, fileName)
     });
