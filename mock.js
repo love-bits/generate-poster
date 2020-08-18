@@ -1,5 +1,6 @@
 const mock = {
   title: "Titulo da apresentação ",
+  subtitle: "do convidado",
   date: "25/08",
   hour: "10:00",
   presenter: "Nome do Convidado",
