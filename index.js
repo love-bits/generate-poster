@@ -3,18 +3,19 @@
 const program = require('commander')
 const package = require('./package.json')
 const sharp = require('sharp')
-const fs = require('fs')
+const { writeFileSync, readFileSync} = require('fs')
 const mock = require('./mock')
 
-const svgOriginalPath = './assets/img/cartaz-base.svg';
+const svgOriginalPath = './assets/img/cartaz-base.svg'
 const svgNewPath = './temp.svg'
 
 const modifySvg = (options) => {
-  let svg = fs.readFileSync(svgOriginalPath, 'utf-8')
+  let svg = readFileSync(svgOriginalPath, 'utf-8')
+  options.subtitle = ' '
 
   if (options.title && options.title.length > 23) {
     let title = ''
-    let lastSpace = options.title.lastIndexOf(' ');
+    let lastSpace = options.title.lastIndexOf(' ')
 
     if (lastSpace >= 22) lastSpace = options.title.substring(0, lastSpace - 1).lastIndexOf(' ')
 
@@ -27,21 +28,21 @@ const modifySvg = (options) => {
     if (options[el]) svg = svg.replace(mock[el], options[el])
   });
 
-  return fs.writeFileSync(svgNewPath, svg, 'utf-8')
+  return writeFileSync(svgNewPath, svg, 'utf-8')
 }
 
 const saveToPng = prefix => sharp(svgNewPath).png().toFile(prefix + '.png')
 
-const createPoster = (options, fileName) => {
+const createPoster = (options) => {
   modifySvg(options)
-  saveToPng(fileName)
+  saveToPng(options.fileName)
 }
 
 program.version(package.version)
 
 program
-    .command('generate [fileName]')
     .description('Generate Love Bits meetup poster\n\nRemember: Use double quote in arguments with space\nThe first argument is the output title')
+    .option('-f, --fileName [filename]', 'Set the file name', 'poster')
     .option('-p, --presenter [presenter]', 'Set presenter name')
     .option('-t, --title [title]', 'Set meetup title')
     .option('-d, --date [date]', 'Set meetup date -> Format dd/mm')
@@ -49,8 +50,6 @@ program
     .option('-r, --role [role]', 'Set presenter role')
     .option('-l, --link [link]', 'Set meetup link')
     .option('-i, --image [image]', 'Set presenter image')
-    .action((fileName, options) => {
-        createPoster(options, fileName)
-    });
+    .action(options => createPoster(options));
 
 program.parse(process.argv)

@@ -1,14 +1,10 @@
 {
-  "name": "lb-svg",
+  "name": "generate-poster",
   "version": "1.0.0",
-  "description": "",
+  "description": "Command to generate Love Bits meetup poster",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Love Bits",
+  "license": "MIT",
   "dependencies": {
     "commander": "^6.0.0",
     "sharp": "^0.25.4"
