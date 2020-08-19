@@ -41,7 +41,7 @@ const createPoster = (options) => {
 program.version(package.version)
 
 program
-    .description('Generate Love Bits meetup poster\n\nRemember: Use double quote in arguments with space\nThe first argument is the output title')
+    .description('Generate Love Bits meetup poster\n\nRemember: Use double quote in arguments with space')
     .option('-f, --fileName [filename]', 'Set the file name', 'poster')
     .option('-p, --presenter [presenter]', 'Set presenter name')
     .option('-t, --title [title]', 'Set meetup title')
