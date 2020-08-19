@@ -5,18 +5,27 @@ Command to generate Love Bits meetup poster.
 
 ## Install
 
-You just need install using npm.
+To run this project, you'll need Git and Node.js. Run this in your terminal:
+
+```bash
+# Clone this repository
+$ git clone https://github.com/love-bits/generate-poster.git
+
+# Go into the folder
+$ cd generate-poster
+
+# Install dependencies
+$ npm install
 ```
-npm install
-```
-But if you want to use the command **generate-poster** globally,  just use the command above:
-```
-npm link
+
+If you want the **generate-poster** command to be globally-installed, also run the command:
+```bash
+$ npm link
 ```
 
 ## Usage
 
-You can get the available options using this example above:
+You can see the available options running `generate-poster --help` (or `node index.js --help`):
 ```
 $ generate-poster --help
 Usage: generate-poster [options]
