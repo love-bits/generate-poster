@@ -1,16 +1,20 @@
 #!/usr/bin/env node
 
 const program = require('commander')
-const package = require('./package.json')
+const { version } = require('./package.json')
 const sharp = require('sharp')
 const { writeFileSync, readFileSync} = require('fs')
 const mock = require('./mock')
+const { JSDOM } = require("jsdom")
 
 const svgOriginalPath = './assets/img/cartaz-base.svg'
 const svgNewPath = './temp.svg'
 
 const modifySvg = (options) => {
-  let svg = readFileSync(svgOriginalPath, 'utf-8')
+  const svg = readFileSync(svgOriginalPath, 'utf-8')
+  const window = new JSDOM(svg).window
+  const document = window.document.getElementsByTagName("svg")[0]
+
   options.subtitle = ' '
 
   if (options.title && options.title.length > 23) {
@@ -25,10 +29,27 @@ const modifySvg = (options) => {
   }
 
   Object.keys(mock).forEach(el => {
-    if (options[el]) svg = svg.replace(mock[el], options[el])
-  });
+    if (options[el]) {
+      let element = document.getElementById(el)
+      if (el == 'image') {
+        element.setAttribute('xlink:href', options.image)
+        return
+      }
 
-  return writeFileSync(svgNewPath, svg, 'utf-8')
+      element.innerHTML = options[el];
+
+      if (mock[el]['height']) {
+        let diff = mock[el]['text'].length - options[el].length
+
+        if (diff > 0) {
+          let pos = element.getAttribute('x')
+          element.setAttribute('x', parseFloat(pos) + (diff * mock[el]['height']))
+        }
+      }
+    }
+  })
+  
+  return writeFileSync(svgNewPath, document.outerHTML, 'utf-8')
 }
 
 const saveToPng = prefix => sharp(svgNewPath).png().toFile(prefix + '.png')
@@ -38,7 +59,7 @@ const createPoster = (options) => {
   saveToPng(options.fileName)
 }
 
-program.version(package.version)
+program.version(version)
 
 program
     .description('Generate Love Bits meetup poster\n\nRemember: Use double quote in arguments with space')

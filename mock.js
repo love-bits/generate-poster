@@ -1,12 +1,33 @@
 const mock = {
-  title: "Titulo da apresentação ",
-  subtitle: "do convidado",
-  date: "25/08",
-  hour: "10:00",
-  presenter: "Nome do Convidado",
-  role: "Cargo do Convidado",
-  link: "bit.ly/3gh0OvS",
-  image: "yoda.png"
+  title: {
+    text: "Titulo da apresentação ",
+    height: 3.5
+  },
+  subtitle: {
+    text: "do convidado",
+    height: 3.5
+  },
+  date: {
+    text: "25/08"
+  },
+  hour: {
+    text: "10:00"
+  },
+  presenter: {
+    text: "Nome do Convidado",
+    height: 6
+  },
+  role: {
+    text: "Cargo do Convidado",
+    height: 3
+  },
+  link: {
+    text: "bit.ly/3gh0OvS",
+    height: 6
+  },
+  image: {
+    text: "yoda.png"
+  }
 }
 
 module.exports = mock

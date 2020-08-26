@@ -453,7 +453,7 @@
     <image
        y="118.78294"
        x="427.48297"
-       id="image1068"
+       id="image"
        xlink:href="yoda.png"
        preserveAspectRatio="none"
        height="89.164581"
@@ -665,7 +665,7 @@
          y="230.07076"
          id="text1154"><tspan
            sodipodi:role="line"
-           id="tspan1152"
+           id="link"
            x="65.250938"
            y="230.07076"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Ubuntu;-inkscape-font-specification:Ubuntu;fill:#ffffff;stroke-width:0.3893733">bit.ly/3gh0OvS</tspan></text>
@@ -694,7 +694,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rubik;-inkscape-font-specification:Rubik;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.47873127;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          y="164.81447"
          x="198.63757"
-         id="tspan1495"
+         id="presenter"
          sodipodi:role="line">Nome do Convidado</tspan></text>
     <text
        id="text1501"
@@ -705,7 +705,7 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Rubik;-inkscape-font-specification:Rubik;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:0.47873127;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          y="181.80675"
          x="227.92734"
-         id="tspan1499"
+         id="role"
          sodipodi:role="line">Cargo do Convidado</tspan></text>
     <text
        xml:space="preserve"
@@ -732,7 +732,7 @@
            x="-37.777363"
            y="100.42665"
            style="font-size:22.57777786px;fill:#ffffff;stroke-width:0.26458332"
-           id="tspan1110">Titulo da apresentação </tspan></tspan><tspan
+           id="title">Titulo da apresentação </tspan></tspan><tspan
          sodipodi:role="line"
          x="-37.777363"
          y="128.64888"
@@ -741,6 +741,6 @@
            x="-37.777363"
            y="128.64888"
            style="font-size:22.57777786px;fill:#ffffff;stroke-width:0.26458332"
-           id="tspan1114">do convidado</tspan></tspan></text>
+           id="subtitle">do convidado</tspan></tspan></text>
   </g>
 </svg>
