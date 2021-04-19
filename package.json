@@ -6,9 +6,9 @@
   "author": "Love Bits",
   "license": "MIT",
   "dependencies": {
-    "commander": "^7.1.0",
+    "commander": "^7.2.0",
     "jsdom": "^16.5.3",
-    "sharp": "^0.27.1"
+    "sharp": "^0.28.1"
   },
   "bin": {
     "generate-poster": "index.js"
