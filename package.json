@@ -8,7 +8,7 @@
   "dependencies": {
     "commander": "^7.2.0",
     "jsdom": "^16.5.3",
-    "sharp": "^0.28.1"
+    "sharp": "^0.30.5"
   },
   "bin": {
     "generate-poster": "index.js"
